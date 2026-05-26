@@ -4,9 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/churchapp/',
-  logLevel: 'error',
- // Suppress warnings, only show errors
+  base: process.env.NODE_ENV === 'production' && !process.env.VERCEL ? '/churchapp/' : '/',
   plugins: [
     base44({
       // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
