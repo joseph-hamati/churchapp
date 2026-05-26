@@ -1,12 +1,16 @@
 // mockBackend.js - A local-storage based simulation of the Base44 SDK
 const STORAGE_PREFIX = 'churchapp_db_';
 
+const isBrowser = typeof window !== 'undefined';
+
 const getStorage = (key) => {
+  if (!isBrowser) return [];
   const data = localStorage.getItem(STORAGE_PREFIX + key);
   return data ? JSON.parse(data) : [];
 };
 
 const setStorage = (key, data) => {
+  if (!isBrowser) return;
   localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(data));
 };
 
@@ -88,11 +92,13 @@ const entities = entitiesList.reduce((acc, name) => {
 
 const auth = {
   me: async () => {
+    if (!isBrowser) return null;
     const user = JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'current_user'));
     if (!user) throw { status: 401, message: 'Unauthorized' };
     return user;
   },
   updateMe: async (data) => {
+    if (!isBrowser) return null;
     const user = JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'current_user')) || {
       id: 'default-user-id',
       email: 'user@example.com',
@@ -117,10 +123,12 @@ const auth = {
     return updatedUser;
   },
   logout: (redirect) => {
+    if (!isBrowser) return;
     localStorage.removeItem(STORAGE_PREFIX + 'current_user');
     if (redirect) window.location.href = '/';
   },
   redirectToLogin: (redirect) => {
+    if (!isBrowser) return;
     // For mock, we just ensure a base user exists and reload
     const defaultUser = {
       id: 'dev-user-id',
