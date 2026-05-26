@@ -35,7 +35,7 @@ const SelectContent = React.forwardRef(({ className, children, position = "poppe
         className
       )}
       position={position}
-      ...props
+      {...props}
     >
       <SelectPrimitive.Viewport
         className={cn(
