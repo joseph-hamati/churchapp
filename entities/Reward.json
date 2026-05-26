@@ -1,0 +1,50 @@
+﻿{
+  "name": "Reward",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "points_cost": {
+      "type": "number"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "toy",
+        "snack",
+        "certificate",
+        "privilege",
+        "surprise"
+      ],
+      "default": "surprise"
+    },
+    "quantity_available": {
+      "type": "number",
+      "default": -1,
+      "description": "-1 means unlimited"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "church_id",
+    "name",
+    "points_cost"
+  ]
+}

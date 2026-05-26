@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fredoka+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-body: 'Nunito', sans-serif;
+    --font-display: 'Fredoka One', cursive;
+
+    --background: 260 30% 97%;
+    --foreground: 260 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 25% 12%;
+    --primary: 262 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 95% 55%;
+    --secondary-foreground: 42 95% 15%;
+    --muted: 260 20% 93%;
+    --muted-foreground: 260 10% 45%;
+    --accent: 160 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 15% 88%;
+    --input: 260 15% 88%;
+    --ring: 262 80% 55%;
+    --chart-1: 262 80% 55%;
+    --chart-2: 42 95% 55%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 340 75% 55%;
+    --chart-5: 200 75% 55%;
+    --radius: 1rem;
+    --sidebar-background: 260 30% 97%;
+    --sidebar-foreground: 260 25% 12%;
+    --sidebar-primary: 262 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 20% 93%;
+    --sidebar-accent-foreground: 260 25% 12%;
+    --sidebar-border: 260 15% 88%;
+    --sidebar-ring: 262 80% 55%;
+  }
+
+  .dark {
+    --background: 260 25% 8%;
+    --foreground: 260 10% 95%;
+    --card: 260 25% 12%;
+    --card-foreground: 260 10% 95%;
+    --popover: 260 25% 12%;
+    --popover-foreground: 260 10% 95%;
+    --primary: 262 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 90% 55%;
+    --secondary-foreground: 42 90% 10%;
+    --muted: 260 20% 18%;
+    --muted-foreground: 260 10% 55%;
+    --accent: 160 55% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 20% 20%;
+    --input: 260 20% 20%;
+    --ring: 262 80% 60%;
+    --chart-1: 262 80% 60%;
+    --chart-2: 42 90% 55%;
+    --chart-3: 160 55% 50%;
+    --chart-4: 340 70% 60%;
+    --chart-5: 200 70% 60%;
+    --sidebar-background: 260 25% 8%;
+    --sidebar-foreground: 260 10% 95%;
+    --sidebar-primary: 262 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 20% 18%;
+    --sidebar-accent-foreground: 260 10% 95%;
+    --sidebar-border: 260 20% 20%;
+    --sidebar-ring: 262 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    overscroll-behavior-y: none;
+  }
+
+  button, a, nav, [role="button"] {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  svg {
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+  }
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

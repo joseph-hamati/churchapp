@@ -1,0 +1,69 @@
+﻿{
+  "name": "Student",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string",
+      "description": "ID of the church this student belongs to"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date"
+    },
+    "parent_email": {
+      "type": "string",
+      "description": "Parent's email for linking"
+    },
+    "points": {
+      "type": "number",
+      "default": 0,
+      "description": "Current point balance"
+    },
+    "total_points_earned": {
+      "type": "number",
+      "default": 0,
+      "description": "Lifetime points earned"
+    },
+    "level": {
+      "type": "number",
+      "default": 1
+    },
+    "streak_days": {
+      "type": "number",
+      "default": 0
+    },
+    "last_attendance_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of badge IDs earned"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "church_id",
+    "first_name",
+    "last_name"
+  ]
+}

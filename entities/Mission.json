@@ -1,0 +1,57 @@
+﻿{
+  "name": "Mission",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "points_reward": {
+      "type": "number"
+    },
+    "mission_type": {
+      "type": "string",
+      "enum": [
+        "bible_verse",
+        "prayer",
+        "kindness",
+        "homework",
+        "video",
+        "attendance",
+        "other"
+      ],
+      "default": "other"
+    },
+    "requires_upload": {
+      "type": "boolean",
+      "default": false
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "expired"
+      ],
+      "default": "active"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Emoji or icon identifier"
+    }
+  },
+  "required": [
+    "church_id",
+    "title",
+    "points_reward"
+  ]
+}

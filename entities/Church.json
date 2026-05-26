@@ -1,0 +1,36 @@
+﻿{
+  "name": "Church",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Church name"
+    },
+    "join_code": {
+      "type": "string",
+      "description": "Unique code for joining this church"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "Church logo image URL"
+    },
+    "primary_color": {
+      "type": "string",
+      "description": "Brand color hex code"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the church"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "join_code"
+  ]
+}

@@ -1,0 +1,36 @@
+﻿{
+  "name": "RewardRedemption",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "student_id": {
+      "type": "string"
+    },
+    "reward_id": {
+      "type": "string"
+    },
+    "points_spent": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "fulfilled",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "fulfilled_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "church_id",
+    "student_id",
+    "reward_id",
+    "points_spent"
+  ]
+}

@@ -1,0 +1,42 @@
+﻿{
+  "name": "Announcement",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "important",
+        "urgent"
+      ],
+      "default": "normal"
+    },
+    "target_audience": {
+      "type": "string",
+      "enum": [
+        "all",
+        "parents",
+        "kids",
+        "teachers"
+      ],
+      "default": "all"
+    }
+  },
+  "required": [
+    "church_id",
+    "title",
+    "body"
+  ]
+}

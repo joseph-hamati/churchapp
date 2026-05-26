@@ -1,0 +1,42 @@
+﻿{
+  "name": "PointTransaction",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "student_id": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Positive for earned, negative for spent"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "attendance",
+        "mission",
+        "reward_redemption",
+        "manual",
+        "video",
+        "behavior",
+        "event"
+      ],
+      "default": "manual"
+    },
+    "reference_id": {
+      "type": "string",
+      "description": "ID of related mission/reward/etc"
+    }
+  },
+  "required": [
+    "church_id",
+    "student_id",
+    "amount",
+    "reason"
+  ]
+}

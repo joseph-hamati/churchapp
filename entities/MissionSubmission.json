@@ -1,0 +1,43 @@
+﻿{
+  "name": "MissionSubmission",
+  "type": "object",
+  "properties": {
+    "church_id": {
+      "type": "string"
+    },
+    "mission_id": {
+      "type": "string"
+    },
+    "student_id": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded video/image URL"
+    },
+    "note": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "reviewed_by": {
+      "type": "string"
+    },
+    "points_awarded": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "church_id",
+    "mission_id",
+    "student_id"
+  ]
+}

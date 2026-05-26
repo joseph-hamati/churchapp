@@ -1,0 +1,7 @@
+{
+  "title": "string",
+  "body": "string",
+  "priority": "normal | important | urgent",
+  "church_id": "uuid",
+  "image_url": "string (optional)"
+}
