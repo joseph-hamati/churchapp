@@ -73,4 +73,59 @@ export default function AdminRewards() {
                     <Star className="w-2.5 h-2.5 mr-0.5" fill="currentColor" /> {r.points_cost} pts
                   </Badge>
                   <Badge variant="outline" className="text-[10px] capitalize">{r.category}</Badge>
- 
+                </div>
+              </div>
+              <Button size="icon" variant="ghost" className="text-destructive" onClick={() => handleDelete(r.id)}>
+                <Trash2 className="w-4 h-4" />
+              </Button>
+            </Card>
+          </motion.div>
+        ))}
+        {rewards.length === 0 && (
+          <div className="text-center py-16 text-muted-foreground">
+            <p className="text-4xl mb-3">🎁</p>
+            <p className="font-semibold">No rewards yet</p>
+          </div>
+        )}
+      </div>
+
+      <Dialog open={showAdd} onOpenChange={setShowAdd}>
+        <DialogContent className="max-w-sm rounded-3xl">
+          <DialogHeader>
+            <DialogTitle className="font-display">New Reward</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div>
+              <Label>Name</Label>
+              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="rounded-xl" placeholder="e.g. Candy Bar" />
+            </div>
+            <div>
+              <Label>Description</Label>
+              <Textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="rounded-xl" />
+            </div>
+            <div>
+              <Label>Points Cost</Label>
+              <Input type="number" value={form.points_cost} onChange={(e) => setForm({ ...form, points_cost: e.target.value })} className="rounded-xl" placeholder="e.g. 50" />
+            </div>
+            <div>
+              <Label>Category</Label>
+              <Select value={form.category} onValueChange={(v) => setForm({ ...form, category: v })}>
+                <SelectTrigger className="rounded-xl"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="toy">🧸 Toy</SelectItem>
+                  <SelectItem value="snack">🍭 Snack</SelectItem>
+                  <SelectItem value="certificate">📜 Certificate</SelectItem>
+                  <SelectItem value="privilege">👑 Privilege</SelectItem>
+                  <SelectItem value="surprise">🎁 Surprise</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Button onClick={handleCreate} disabled={!form.name || !form.points_cost} className="w-full rounded-xl">
+              Create Reward
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
